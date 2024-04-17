@@ -1,7 +1,7 @@
 # ProjetoDB
 ## Integrantes:
-<br>Lucas Rezende Simões              RA: 24.122.028-4</br>
+<p>Lucas Rezende Simões        RA: 24.122.028-4</p>
 
-<br>Fernando Milani Venerando         RA: 24.122.063-1</br>
+<p>Fernando Milani Venerando   RA: 24.122.063-1</p>
 
-<br>Murilo Darce Borges Silva         RA: 24.122.031-8</br>
+<p>Murilo Darce Borges Silva   RA: 24.122.031-8</p>
