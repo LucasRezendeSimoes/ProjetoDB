@@ -1,1 +1,13 @@
-CREATE database projeto;
+CREATE DATABASE projeto;
+Tabelas
+CREATE TABLE Alunos(
+  Nome VARCHAR(255),
+  RA VARCHAR(255),
+  Curso Varchar(255),
+  Semestre int
+);
+
+
+Valores para teste
+insert into alunos 
+values ('Joãozinho123anti_lacração', '123456789', 'Eng. Prod', 10);
