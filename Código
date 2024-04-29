@@ -4,10 +4,27 @@ CREATE TABLE Alunos(
   Nome VARCHAR(255),
   RA VARCHAR(255),
   Curso Varchar(255),
-  Semestre int
+  Semestre int,
+  Aprovação boolean,
 );
 
 
 Valores para teste
 insert into alunos 
 values ('Joãozinho123anti_lacração', '123456789', 'Eng. Prod', 10);
+
+
+
+Principais
+alunos (nome, RA, Curso, Semestre, tot_cred, tcc_id)
+professores (nome, id, departamento, disciplina) 
+cursos (nome, id, coordenador)
+departamentos(nome, id, id_chefe)
+disciplinas (nome, id, Departamento) 
+
+matriz curricular dos cursos
+
+Extras
+TCC(tcc_id, id professor)
+hist_a(RA, id curso, semestre, ano, nota)
+hist_p(id professor, id curso, semestre, ano)
