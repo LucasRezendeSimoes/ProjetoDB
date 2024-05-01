@@ -10,7 +10,9 @@ erDiagram
         string Nome
         string RA
         string Curso
+        string TCC_id
         int Semestre
+        int Creditos
     }
 
 ```
