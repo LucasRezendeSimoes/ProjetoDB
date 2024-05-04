@@ -5,7 +5,38 @@ CREATE TABLE Alunos(
   RA VARCHAR(255),
   Curso Varchar(255),
   Semestre int,
-  Aprovação boolean,
+  Tot_cred int,
+  Tcc_id VARCHAR(10)
+);
+CREATE TABLE Professores(
+  Nome VARCHAR(255),
+  P_id VARCHAR(255),
+  Departamento VARCHAR(255),
+  Disciplina VARCHAR(255)
+);
+CREATE TABLE Alunos(
+  Nome VARCHAR(255),
+  RA VARCHAR(255),
+  Curso Varchar(255),
+  Semestre int,
+  Tot_cred int,
+  Tcc_id VARCHAR(10)
+);
+CREATE TABLE Alunos(
+  Nome VARCHAR(255),
+  RA VARCHAR(255),
+  Curso Varchar(255),
+  Semestre int,
+  Tot_cred int,
+  Tcc_id VARCHAR(10)
+);
+CREATE TABLE Alunos(
+  Nome VARCHAR(255),
+  RA VARCHAR(255),
+  Curso Varchar(255),
+  Semestre int,
+  Tot_cred int,
+  Tcc_id VARCHAR(10)
 );
 
 
@@ -17,7 +48,7 @@ values ('Joãozinho123anti_lacração', '123456789', 'Eng. Prod', 10);
 
 Principais
 alunos (nome, RA, Curso, Semestre, tot_cred, tcc_id)
-professores (nome, id, departamento, disciplina) 
+professores (nome, P_id, departamento, disciplina) 
 cursos (nome, id, coordenador)
 departamentos(nome, id, id_chefe)
 disciplinas (nome, id, Departamento) 
