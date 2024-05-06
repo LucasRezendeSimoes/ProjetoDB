@@ -47,6 +47,12 @@ erDiagram
         int Semestre
         int ano
     }
+    Formado{
+       string RA
+        int semestre
+        int ano
+        string Id_Curso
+    }
 
     CUSTOMER ||--o{ ORDER : places
     CUSTOMER {
@@ -64,4 +70,22 @@ erDiagram
         int quantity
         float pricePerUnit
     }
+
+    
+    Alunos }|--|{ Professores : leciona
+    Alunos }|--|| Cursos : Cursa
+    Alunos }|--|| TCC : Participa
+    Alunos ||--|| Hist_a : Pertence
+    Alunos |o--o| Formado : Esta
+
+    Professores ||--o| Cursos : Coordena
+    Professores ||--o| Departamentos : Chefia
+    Professores }|--|{ Disciplinas: Leciona
+    Professores ||--|{ TCC : Orienta
+    Professores ||--|| Hist_p : Pertence
+
+    Cursos }|--|{ Disciplinas : Possui
+    Cursos ||--|| Formado : Foi
+
+    Departamentos ||--|{ Disciplinas : Possui
 ```
