@@ -3,16 +3,16 @@ erDiagram
     Alunos {
         string Nome
         string RA
-        string Curso
-        string TCC_id
+        string id_Curso
         int Semestre
-        int Creditos
+        int Tot_cred
+        string id_tcc
     }
     Professores {
         string Nome
         string Id
-        string Departamento
-        string Disciplina
+        string id_Departamento
+        string id_Disciplina
     }
     Cursos {
         string Nome
