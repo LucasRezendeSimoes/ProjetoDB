@@ -10,23 +10,23 @@ CREATE TABLE Alunos(
 );
 CREATE TABLE Professores(
   Nome VARCHAR(255),
-  P_id VARCHAR(255),
+  id VARCHAR(255),
   Departamento VARCHAR(255),
   Disciplina VARCHAR(255)
 );
 CREATE TABLE Cursos(
   Nome VARCHAR(255),
-  C_id VARCHAR(255),
+  id VARCHAR(255),
   Coordenador Varchar(255),
 );
 CREATE TABLE Departamentos(
   Nome VARCHAR(255),
-  D_id VARCHAR(255),
+  id VARCHAR(255),
   Id_chefe Varchar(255),
 );
 CREATE TABLE Disciplinas(
   Nome VARCHAR(255),
-  Dc_id VARCHAR(255),
+  id VARCHAR(255),
   Departamento Varchar(255),
 );
 CREATE TABLE MCC(
@@ -34,19 +34,19 @@ CREATE TABLE MCC(
 
 
 CREATE TABLE TCC(
-  Tcc_id VARCHAR(255),
-  P_id VARCHAR(255),
+  aluno Tcc_id VARCHAR(255),
+  professor id VARCHAR(255),
 );
 CREATE TABLE Hist_a(
   RA VARCHAR(255),
-  C_id VARCHAR(255),
+  curso id VARCHAR(255),
   semestre int,
   ano int,
   nota int
 );
 CREATE TABLE Hist_p(
-  P_id VARCHAR(255),
-  C_id VARCHAR(255),
+  Professor id VARCHAR(255),
+  Curso id VARCHAR(255),
   semestre int,
   ano int,
 );
