@@ -3,16 +3,16 @@ Tabelas
 CREATE TABLE Alunos(
   Nome VARCHAR(255),
   RA VARCHAR(255),
-  Curso Varchar(255),
+  id_Curso Varchar(255),
   Semestre int,
   Tot_cred int,
-  Tcc_id VARCHAR(10)
+  id_Tcc VARCHAR(10)
 );
 CREATE TABLE Professores(
   Nome VARCHAR(255),
   id VARCHAR(255),
-  Departamento VARCHAR(255),
-  Disciplina VARCHAR(255)
+  Depart.id VARCHAR(255),
+  Disc.id VARCHAR(255)
 );
 CREATE TABLE Cursos(
   Nome VARCHAR(255),
@@ -22,31 +22,31 @@ CREATE TABLE Cursos(
 CREATE TABLE Departamentos(
   Nome VARCHAR(255),
   id VARCHAR(255),
-  Id_chefe Varchar(255),
+  id_chefe Varchar(255),
 );
 CREATE TABLE Disciplinas(
   Nome VARCHAR(255),
   id VARCHAR(255),
-  Departamento Varchar(255),
+  Depart.id Varchar(255),
 );
 CREATE TABLE MCC(
 );
 
 
 CREATE TABLE TCC(
-  aluno Tcc_id VARCHAR(255),
-  professor id VARCHAR(255),
+  aluno.Tcc_id VARCHAR(255),
+  professor.id VARCHAR(255),
 );
 CREATE TABLE Hist_a(
-  RA VARCHAR(255),
-  curso id VARCHAR(255),
+  aluno.RA VARCHAR(255),
+  id_curso VARCHAR(255),
   semestre int,
   ano int,
   nota int
 );
 CREATE TABLE Hist_p(
-  Professor id VARCHAR(255),
-  Curso id VARCHAR(255),
+  Professor.id VARCHAR(255),
+  Curso.id VARCHAR(255),
   semestre int,
   ano int,
 );
