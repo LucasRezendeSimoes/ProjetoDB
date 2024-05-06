@@ -14,29 +14,41 @@ CREATE TABLE Professores(
   Departamento VARCHAR(255),
   Disciplina VARCHAR(255)
 );
-CREATE TABLE Alunos(
+CREATE TABLE Cursos(
   Nome VARCHAR(255),
-  RA VARCHAR(255),
-  Curso Varchar(255),
-  Semestre int,
-  Tot_cred int,
-  Tcc_id VARCHAR(10)
+  C_id VARCHAR(255),
+  Coordenador Varchar(255),
 );
-CREATE TABLE Alunos(
+CREATE TABLE Departamentos(
   Nome VARCHAR(255),
-  RA VARCHAR(255),
-  Curso Varchar(255),
-  Semestre int,
-  Tot_cred int,
-  Tcc_id VARCHAR(10)
+  D_id VARCHAR(255),
+  Id_chefe Varchar(255),
 );
-CREATE TABLE Alunos(
+CREATE TABLE Disciplinas(
   Nome VARCHAR(255),
+  Dc_id VARCHAR(255),
+  Departamento Varchar(255),
+);
+CREATE TABLE MCC(
+);
+
+
+CREATE TABLE TCC(
+  Tcc_id VARCHAR(255),
+  P_id VARCHAR(255),
+);
+CREATE TABLE Hist_a(
   RA VARCHAR(255),
-  Curso Varchar(255),
-  Semestre int,
-  Tot_cred int,
-  Tcc_id VARCHAR(10)
+  C_id VARCHAR(255),
+  semestre int,
+  ano int,
+  nota int
+);
+CREATE TABLE Hist_p(
+  P_id VARCHAR(255),
+  C_id VARCHAR(255),
+  semestre int,
+  ano int,
 );
 
 
