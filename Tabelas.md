@@ -54,24 +54,6 @@ erDiagram
         string Id_Curso
     }
 
-    CUSTOMER ||--o{ ORDER : places
-    CUSTOMER {
-        string name
-        string custNumber
-        string sector
-    }
-    ORDER ||--|{ LINE-ITEM : contains
-    ORDER {
-        int orderNumber
-        string deliveryAddress
-    }
-    LINE-ITEM {
-        string productCode
-        int quantity
-        float pricePerUnit
-    }
-
-    
     Alunos }|--|{ Professores : leciona
     Alunos }|--|| Cursos : Cursa
     Alunos }|--|| TCC : Participa
