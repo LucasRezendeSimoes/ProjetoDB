@@ -5,7 +5,6 @@ erDiagram
         string RA
         string id_Curso
         int Semestre
-        int Tot_cred
         string id_tcc
     }
     Professores {
@@ -36,13 +35,14 @@ erDiagram
     Hist_a {
         string RA
         string Id_Curso
+        string Id_disciplina
         int Semestre
         int ano
         int nota
     }
     Hist_p {
         string Id_Professor
-        string RA
+        string Id_disciplina
         string Id_Curso
         int Semestre
         int ano
