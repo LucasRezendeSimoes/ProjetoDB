@@ -55,6 +55,17 @@ CREATE TABLE Hist_p(
 Valores para teste
 insert into alunos 
 values ('Joãozinho123anti_lacração', '123456789', 'Eng. Prod', 10);
+insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc) values ('Briney Crips', '7144486071', '8010', 1, 1, '2');
+insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc) values ('Hunt Burberry', '6390410948', '79', 2, 2, '07444');
+insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc) values ('Merralee Aiken', '8676755329', '00', 3, 3, '716');
+insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc) values ('Jerry Summerson', '5370601909', '6', 4, 4, '634');
+insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc) values ('Carey Gillingham', '4581949548', '41528', 5, 5, '87995');
+insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc) values ('Giana Harback', '2884642765', '5', 6, 6, '2525');
+insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc) values ('Leland Jimes', '6703616205', '1914', 7, 7, '51231');
+insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc) values ('Nicola Arro', '5913577698', '184', 8, 8, '565');
+insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc) values ('Conrad Spears', '5591245617', '4736', 9, 9, '17776');
+insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc) values ('Edita Heustace', '1040251110', '3', 10, 10, '257');
+
 
 
 
