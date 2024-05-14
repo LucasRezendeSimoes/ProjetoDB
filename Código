@@ -11,8 +11,8 @@ CREATE TABLE Alunos(
 CREATE TABLE Professores(
   Nome VARCHAR(255),
   id VARCHAR(255),
-  Depart.id VARCHAR(255),
-  Disc.id VARCHAR(255)
+  Depart_id VARCHAR(255),
+  Disc_id VARCHAR(255)
 );
 CREATE TABLE Cursos(
   Nome VARCHAR(255),
