@@ -11,7 +11,6 @@ erDiagram
         string Nome
         string Id
         string id_Departamento
-        string id_Disciplina
     }
     Cursos {
         string Nome
@@ -52,6 +51,11 @@ erDiagram
         int semestre
         int ano
         string Id_Curso
+    }
+    Ensina{
+        string id_disciplina
+        string id_professor
+        
     }
 
     Alunos }|--|{ Professores : leciona
