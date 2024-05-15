@@ -27,7 +27,7 @@ CREATE TABLE Departamentos(
 CREATE TABLE Disciplinas(
   Nome VARCHAR(255),
   id VARCHAR(255),
-  Depart.id Varchar(255),
+  Depart_id Varchar(255),
 );
 CREATE TABLE MCC(
 );
@@ -66,8 +66,33 @@ insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc) values ('Nic
 insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc) values ('Conrad Spears', '5591245617', '4736', 9, 9, '17776');
 insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc) values ('Edita Heustace', '1040251110', '3', 10, 10, '257');
 
+insert into Departamentos (Nome, id, id_chefe) values ('Ciências da Computação', 'CC', '88580');
+insert into Departamentos (Nome, id, id_chefe) values ('Administração', 'AD', '35775');
+insert into Departamentos (Nome, id, id_chefe) values ('Eng. Elétrica', 'EE', '47577');
+insert into Departamentos (Nome, id, id_chefe) values ('Física', 'FI', '67997');
+insert into Departamentos (Nome, id, id_chefe) values ('Estudos Sociais', 'ES', '57109');
 
+insert into Disciplinas (Nome, id, Depart_id) values ('Python', 7615, 'CC');
+insert into Disciplinas (Nome, id, Depart_id) values ('C', 0842, 'CC');
+insert into Disciplinas (Nome, id, Depart_id) values ('Eng. de Software', 6057, 'CC');
+insert into Disciplinas (Nome, id, Depart_id) values ('Estatística', 1014, 'AD');
+insert into Disciplinas (Nome, id, Depart_id) values ('Cálculo', 1983, 'FI');
+insert into Disciplinas (Nome, id, Depart_id) values ('Termodinâmica', 9882, 'FI');
+insert into Disciplinas (Nome, id, Depart_id) values ('Circuitos', 1248, 'EE');
+insert into Disciplinas (Nome, id, Depart_id) values ('Sociologia', 8598, 'ES');
+insert into Disciplinas (Nome, id, Depart_id) values ('Filosofia', 7927, 'ES');
+insert into Disciplinas (Nome, id, Depart_id) values ('Estudo Social Cristão', 5890, 'ES');
+insert into Disciplinas (Nome, id, Depart_id) values ('Macroeconomia', 1880, 'AD');
+insert into Disciplinas (Nome, id, Depart_id) values ('Sistemas Digitais', 3448, 'EE');
+insert into Disciplinas (Nome, id, Depart_id) values ('Gestão', 8940, 'AD');
+insert into Disciplinas (Nome, id, Depart_id) values ('Mecânica Geral', 4847, 'FI');
+insert into Disciplinas (Nome, id, Depart_id) values ('Microprocessadores', 4296, 'EE');
 
+insert into Cursos (Nome, id, Coordenador) values ('Ciências da computação', 5356, '88580');
+insert into Cursos (Nome, id, Coordenador) values ('Eng. Elétrica', 9583, '90276');
+insert into Cursos (Nome, id, Coordenador) values ('Administração', 9876, '99154');
+insert into Cursos (Nome, id, Coordenador) values ('Eng. Automotiva', 1914, '24486');
+insert into Cursos (Nome, id, Coordenador) values ('Eng. Civil', 1521, '20783');
 
 Principais
 alunos (nome, RA, Curso, Semestre, tot_cred, tcc_id)
