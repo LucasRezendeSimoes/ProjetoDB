@@ -1,60 +1,60 @@
 ```mermaid
 erDiagram
     Alunos {
+        string RA pk
         string Nome
-        string RA
-        string id_Curso
+        string id_Curso fk
         int Semestre
-        string id_tcc
+        string id_tcc fk
     }
     Professores {
+        string Id pk
         string Nome
-        string Id
-        string id_Departamento
+        string id_Departamento fk
     }
     Cursos {
+        string id pk
         string Nome
-        string id
-        string Cordenador
+        string Cordenador fk
     }
     Departamentos {
+        string Id pk
         string Nome
-        string Id
-        string Id_chefe
+        string Id_chefe fk
     }
     Disciplinas {
+        string Id pk
         string Nome
-        string Id
-        string Departamento
+        string Departamento fk
     }
     TCC {
-        string TCC_id
-        string Id_professor
+        string TCC_id pk
+        string Id_professor fk
     }
     Hist_a {
-        string RA
-        string Id_Curso
-        string Id_disciplina
+        string RA pk
+        string Id_Curso fk
+        string Id_disciplina fk
         int Semestre
         int ano
         int nota
     }
     Hist_p {
-        string Id_Professor
-        string Id_disciplina
-        string Id_Curso
+        string Id_Professor pk
+        string Id_disciplina fk
+        string Id_Curso fk
         int Semestre
         int ano
     }
     Formado{
-       string RA
+        string RA pk
         int semestre
         int ano
-        string Id_Curso
+        string Id_Curso fk
     }
     Ensina{
-        string id_disciplina
-        string id_professor
+        string id_disciplina fk
+        string id_professor fk
         
     }
 
@@ -66,12 +66,15 @@ erDiagram
 
     Professores ||--o| Cursos : Coordena
     Professores ||--o| Departamentos : Chefia
-    Professores }|--|{ Disciplinas: Leciona
     Professores ||--|{ TCC : Orienta
     Professores ||--|| Hist_p : Pertence
+    Professores }|--|{ Ensina : Ensina
 
-    Cursos }|--|{ Disciplinas : Possui
+    
     Cursos ||--|| Formado : Foi
 
     Departamentos ||--|{ Disciplinas : Possui
+    Cursos }|--|{ Disciplinas : Possui
+
+    Disciplinas }|--|{ Ensina : Inclui
 ```
