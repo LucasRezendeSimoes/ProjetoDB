@@ -35,7 +35,6 @@ erDiagram
         string id_curso pk
         int Semestre
         string Nome_Curso fk
-        string Nome_Departamento fk
         string id_disc fk
         string Nome_disc fk
         string Dept_nome fk
