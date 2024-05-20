@@ -32,10 +32,13 @@ erDiagram
         string Id_professor fk
     }
     MCC {
-        int Semestre
         string id_curso pk
+        int Semestre
         string Nome_Curso fk
         string Nome_Departamento fk
+        string id_disc fk
+        string Nome_disc fk
+        string Dept_nome fk
     }
     Hist_a {
         string RA pk
@@ -61,7 +64,6 @@ erDiagram
     Ensina{
         string id_disciplina fk
         string id_professor fk
-        
     }
 
     Alunos }|--|{ Professores : leciona
@@ -76,7 +78,6 @@ erDiagram
     Professores ||--|| Hist_p : Pertence
     Professores }|--|{ Ensina : Ensina
 
-    
     Cursos ||--|| Formado : Foi
     Cursos }|--|| MCC : Possui
 
@@ -84,4 +85,5 @@ erDiagram
     Cursos }|--|{ Disciplinas : Possui
 
     Disciplinas }|--|{ Ensina : Inclui
+    Disciplinas }|--|| MCC : Possui
 ```
