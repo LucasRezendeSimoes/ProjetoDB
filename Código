@@ -6,36 +6,50 @@ CREATE TABLE Alunos(
   id_Curso Varchar(255),
   Semestre int,
   Tot_cred int,
-  id_Tcc VARCHAR(10)
+  id_Tcc VARCHAR(10),
+  PRIMARY KEY(RA),
+  FOREIGN KEY (id_curso) REFERENCES Cursos(id),
+  FOREIGN KEY (id_Tcc) REFERENCES TCC(Tcc_id)
 );
 CREATE TABLE Professores(
   Nome VARCHAR(255),
   id VARCHAR(255),
   Depart_id VARCHAR(255),
   Disc_id VARCHAR(255)
+  PRIMARY KEY(id),
+  FOREING KEY (Depart_id) REFERENCES Departamentos(id),
+  FOREING KEY (Disc_id) REFERENCES Disciplinas(id)
 );
 CREATE TABLE Cursos(
   Nome VARCHAR(255),
   id VARCHAR(255),
   Coordenador Varchar(255),
+  PRIMARY KEY(id),
+  FOREING KEY (Coordenador) REFERENCES Professores(id)
 );
 CREATE TABLE Departamentos(
   Nome VARCHAR(255),
   id VARCHAR(255),
   id_chefe Varchar(255),
+  PRIMARY KEY(id),
+  FOREING KEY (id_chefe) REFERENCES Professores(id)
 );
 CREATE TABLE Disciplinas(
   Nome VARCHAR(255),
   id VARCHAR(255),
   Depart_id Varchar(255),
+  PRIMARY KEY(id),
+  FOREING KEY (Depart_id) REFERENCES Departamentos(id)
 );
 CREATE TABLE MCC(
 );
 
 
 CREATE TABLE TCC(
-  aluno.Tcc_id VARCHAR(255),
-  professor.id VARCHAR(255),
+  Tcc_id VARCHAR(255),
+  id_professor VARCHAR(255),
+  PRIMARY KEY(Tcc_id),
+  FOREING KEY (id_professor) REFERENCES Professores(id)
 );
 CREATE TABLE Hist_a(
   aluno.RA VARCHAR(255),
