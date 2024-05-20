@@ -31,6 +31,12 @@ erDiagram
         string TCC_id pk
         string Id_professor fk
     }
+    MCC {
+        int Semestre
+        string id_curso pk
+        string Nome_Curso fk
+        string Nome_Departamento fk
+    }
     Hist_a {
         string RA pk
         string Id_Curso fk
@@ -72,6 +78,7 @@ erDiagram
 
     
     Cursos ||--|| Formado : Foi
+    Cursos }|--|| MCC : Possui
 
     Departamentos ||--|{ Disciplinas : Possui
     Cursos }|--|{ Disciplinas : Possui
