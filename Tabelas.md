@@ -37,7 +37,6 @@ erDiagram
         string Nome_Curso fk
         string id_disc fk
         string Nome_disc fk
-        string Dept_nome fk
     }
     Hist_a {
         string RA pk
