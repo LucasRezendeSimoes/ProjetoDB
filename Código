@@ -73,10 +73,15 @@ CREATE TABLE Hist_a(
   FOREING KEY (id_disciplinas) REFERENCES Disciplinas(id)
 );
 CREATE TABLE Hist_p(
-  Professor.id VARCHAR(255),
-  Curso.id VARCHAR(255),
+  id_professor VARCHAR(255),
+  id_disciplina VARCHAR(255),
+  id_curso VARCHAR(255),
   semestre int,
   ano int,
+  PRIMARY KEY(id_professor),
+  FOREING KEY (id_professor) REFERENCES Professores(id),
+  FOREING KEY (id_curso) REFERENCES Cursos(id),
+  FOREING KEY (id_disciplinas) REFERENCES Disciplinas(id)
 );
 
 
