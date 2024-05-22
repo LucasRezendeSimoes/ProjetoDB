@@ -187,13 +187,13 @@ insert into TCC (Tcc_id, id_professor) values ('716','88580');
 insert into TCC (Tcc_id, id_professor) values ('634','99154');
 insert into TCC (Tcc_id, id_professor) values ('565','20783');
 
-insert into Hist_p (id_professor, id_disciplina, id_curso, semestre, ano) values ('88580','7615','5356',1,2018)
-insert into Hist_p (id_professor, id_disciplina, id_curso, semestre, ano) values ('90276','1014','9876',2,2015)
-insert into Hist_p (id_professor, id_disciplina, id_curso, semestre, ano) values ('99154','1983','1914',3,2013)
-insert into Hist_p (id_professor, id_disciplina, id_curso, semestre, ano) values ('24486','1248','9583',2,2020)
-insert into Hist_p (id_professor, id_disciplina, id_curso, semestre, ano) values ('20783','8598','1521',2,2018)
-insert into Hist_p (id_professor, id_disciplina, id_curso, semestre, ano) values ('57452','0842','5356',3,2024)
-insert into Hist_p (id_professor, id_disciplina, id_curso, semestre, ano) values ('55321','3448','9583',4,2021)
+insert into Hist_p (id_professor, id_disciplina, id_curso, semestre, ano) values ('88580','7615','5356',1,2018);
+insert into Hist_p (id_professor, id_disciplina, id_curso, semestre, ano) values ('90276','1014','9876',2,2015);
+insert into Hist_p (id_professor, id_disciplina, id_curso, semestre, ano) values ('99154','1983','1914',3,2013);
+insert into Hist_p (id_professor, id_disciplina, id_curso, semestre, ano) values ('24486','1248','9583',2,2020);
+insert into Hist_p (id_professor, id_disciplina, id_curso, semestre, ano) values ('20783','8598','1521',2,2018);
+insert into Hist_p (id_professor, id_disciplina, id_curso, semestre, ano) values ('57452','0842','5356',3,2024);
+insert into Hist_p (id_professor, id_disciplina, id_curso, semestre, ano) values ('55321','3448','9583',4,2021);
 
 Principais
 alunos (nome, RA, Curso, Semestre, tot_cred, tcc_id)
