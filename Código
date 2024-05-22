@@ -8,36 +8,30 @@ CREATE TABLE Alunos(
   Tot_cred int,
   id_Tcc VARCHAR(10),
   PRIMARY KEY(RA),
-  FOREIGN KEY (id_curso) REFERENCES Cursos(id),
-  FOREIGN KEY (id_Tcc) REFERENCES TCC(Tcc_id)
 );
 CREATE TABLE Professores(
   Nome VARCHAR(255),
   id VARCHAR(255),
   Depart_id VARCHAR(255),
   PRIMARY KEY(id),
-  FOREING KEY (Depart_id) REFERENCES Departamentos(id),
 );
 CREATE TABLE Cursos(
   Nome VARCHAR(255),
   id VARCHAR(255),
   Coordenador Varchar(255),
   PRIMARY KEY(id),
-  FOREING KEY (Coordenador) REFERENCES Professores(id)
 );
 CREATE TABLE Departamentos(
   Nome VARCHAR(255),
   id VARCHAR(255),
   id_chefe Varchar(255),
   PRIMARY KEY(id),
-  FOREING KEY (id_chefe) REFERENCES Professores(id)
 );
 CREATE TABLE Disciplinas(
   Nome VARCHAR(255),
   id VARCHAR(255),
   Depart_id Varchar(255),
   PRIMARY KEY(id),
-  FOREING KEY (Depart_id) REFERENCES Departamentos(id)
 );
 CREATE TABLE MCC(
   id_curso VARCHAR(255),
@@ -46,17 +40,12 @@ CREATE TABLE MCC(
   id_disc VARCHAR(255),
   Nome_disc VARCHAR(255),
   PRIMARY KEY(id_curso),
-  FOREING KEY (id_Curso) REFERENCES Cursos(id),
-  FOREING KEY (Nome_Curso) REFERENCES Cursos(Nome),
-  FOREING KEY (id_disc) REFERENCES Disciplinas(id),
-  FOREING KEY (Nome_disc) REFERENCES Disciplinas(id)
 );
 
 CREATE TABLE TCC(
   Tcc_id VARCHAR(255),
   id_professor VARCHAR(255),
   PRIMARY KEY(Tcc_id),
-  FOREING KEY (id_professor) REFERENCES Professores(id)
 );
 CREATE TABLE Hist_a(
   id_aluno VARCHAR(255),
@@ -66,9 +55,6 @@ CREATE TABLE Hist_a(
   ano int,
   nota int
   PRIMARY KEY(id_aluno),
-  FOREING KEY (id_aluno) REFERENCES Alunos(RA),
-  FOREING KEY (id_curso) REFERENCES Cursos(id),
-  FOREING KEY (id_disciplinas) REFERENCES Disciplinas(id)
 );
 CREATE TABLE Hist_p(
   id_professor VARCHAR(255),
@@ -77,16 +63,11 @@ CREATE TABLE Hist_p(
   semestre int,
   ano int,
   PRIMARY KEY(id_professor),
-  FOREING KEY (id_professor) REFERENCES Professores(id),
-  FOREING KEY (id_curso) REFERENCES Cursos(id),
-  FOREING KEY (id_disciplinas) REFERENCES Disciplinas(id)
 );
 CREATE TABLE Ensina(
   id_professor VARCHAR(255),
   id_disciplina VARCHAR(255),
   PRIMARY KEY(id_professor),
-  FOREING KEY (id_professor) REFERENCES Professores(id),
-  FOREING KEY (id_disciplinas) REFERENCES Disciplinas(id)
 );
 
 ALTER TABLE Alunos(
