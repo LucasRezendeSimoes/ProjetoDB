@@ -15,10 +15,8 @@ CREATE TABLE Professores(
   Nome VARCHAR(255),
   id VARCHAR(255),
   Depart_id VARCHAR(255),
-  Disc_id VARCHAR(255)
   PRIMARY KEY(id),
   FOREING KEY (Depart_id) REFERENCES Departamentos(id),
-  FOREING KEY (Disc_id) REFERENCES Disciplinas(id)
 );
 CREATE TABLE Cursos(
   Nome VARCHAR(255),
@@ -83,11 +81,17 @@ CREATE TABLE Hist_p(
   FOREING KEY (id_curso) REFERENCES Cursos(id),
   FOREING KEY (id_disciplinas) REFERENCES Disciplinas(id)
 );
+CREATE TABLE Ensina(
+  id_professor VARCHAR(255),
+  id_disciplina VARCHAR(255),
+  PRIMARY KEY(id_professor),
+  FOREING KEY (id_professor) REFERENCES Professores(id),
+  FOREING KEY (id_disciplinas) REFERENCES Disciplinas(id)
+);
 
 
 Valores para teste
 insert into alunos 
-values ('Joãozinho123anti_lacração', '123456789', 'Eng. Prod', 10);
 insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc) values ('Briney Crips', '7144486071', '8010', 1, 1, '2');
 insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc) values ('Hunt Burberry', '6390410948', '79', 2, 2, '07444');
 insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc) values ('Merralee Aiken', '8676755329', '00', 3, 3, '716');
@@ -126,6 +130,38 @@ insert into Cursos (Nome, id, Coordenador) values ('Eng. Elétrica', 9583, '9027
 insert into Cursos (Nome, id, Coordenador) values ('Administração', 9876, '99154');
 insert into Cursos (Nome, id, Coordenador) values ('Eng. Automotiva', 1914, '24486');
 insert into Cursos (Nome, id, Coordenador) values ('Eng. Civil', 1521, '20783');
+
+insert into MCC (id_curso, semestre, Nome_curso, id_disc, Nome_disc) values ('5356',1,'Ciências da computação','7615','Python');
+insert into MCC (id_curso, semestre, Nome_curso, id_disc, Nome_disc) values ('5356',2,'Ciências da computação','0842','C');
+insert into MCC (id_curso, semestre, Nome_curso, id_disc, Nome_disc) values ('5356',3,'Ciências da computação','5890','Estudo Social Cristão');
+insert into MCC (id_curso, semestre, Nome_curso, id_disc, Nome_disc) values ('5356',4,'Ciências da computação','1983','Cálculo');
+insert into MCC (id_curso, semestre, Nome_curso, id_disc, Nome_disc) values ('9583',1,'Eng. Elétrica','1248','Circuitos');
+insert into MCC (id_curso, semestre, Nome_curso, id_disc, Nome_disc) values ('9583',2,'Eng. Elétrica','3448','Sistemas Digitais');
+insert into MCC (id_curso, semestre, Nome_curso, id_disc, Nome_disc) values ('9876',1,'Administração','8940','Gestão');
+insert into MCC (id_curso, semestre, Nome_curso, id_disc, Nome_disc) values ('9876',2,'Administração','1880','Macroeconomia');
+insert into MCC (id_curso, semestre, Nome_curso, id_disc, Nome_disc) values ('1914',1,'Eng. Automotiva','4847','Mecânica Geral');
+insert into MCC (id_curso, semestre, Nome_curso, id_disc, Nome_disc) values ('1914',2,'Eng. Automotiva','1248','Circuitos');
+insert into MCC (id_curso, semestre, Nome_curso, id_disc, Nome_disc) values ('1521',1,'Eng. Civil','9882','Termodinâmica');
+insert into MCC (id_curso, semestre, Nome_curso, id_disc, Nome_disc) values ('1521',2,'Eng. Civil','1983','Cálculo');
+
+insert into Professores (Nome, id, Depart_id) values ('Cléber','88580','CC');
+insert into Professores (Nome, id, Depart_id) values ('João','90276','AD');
+insert into Professores (Nome, id, Depart_id) values ('Cleiton','99154','EE');
+insert into Professores (Nome, id, Depart_id) values ('Rosana','24486','FI');
+insert into Professores (Nome, id, Depart_id) values ('Maria','20783','ES');
+insert into Professores (Nome, id, Depart_id) values ('Paulo','57452','CC');
+insert into Professores (Nome, id, Depart_id) values ('Nicole','55321','FI');
+
+insert into Ensina (id_profesor, id_disciplina) values ('88580','7615');
+insert into Ensina (id_profesor, id_disciplina) values ('88580','0842');
+insert into Ensina (id_profesor, id_disciplina) values ('90276','8940');
+insert into Ensina (id_profesor, id_disciplina) values ('99154','1248');
+insert into Ensina (id_profesor, id_disciplina) values ('99154','3448');
+insert into Ensina (id_profesor, id_disciplina) values ('24486','9882');
+insert into Ensina (id_profesor, id_disciplina) values ('20783','5890');
+insert into Ensina (id_profesor, id_disciplina) values ('57452','1983');
+insert into Ensina (id_profesor, id_disciplina) values ('55321','4847');
+insert into Ensina (id_profesor, id_disciplina) values ('55321','9882');
 
 Principais
 alunos (nome, RA, Curso, Semestre, tot_cred, tcc_id)
