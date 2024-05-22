@@ -27,10 +27,6 @@ erDiagram
         string Nome
         string Departamento fk
     }
-    TCC {
-        string TCC_id pk
-        string Id_professor fk
-    }
     MCC {
         string id_curso pk
         int Semestre
@@ -38,8 +34,12 @@ erDiagram
         string id_disc fk
         string Nome_disc fk
     }
+    TCC {
+        string TCC_id pk
+        string Id_professor fk
+    }
     Hist_a {
-        string RA pk
+        string Id_Aluno pk
         string Id_Curso fk
         string Id_disciplina fk
         int Semestre
