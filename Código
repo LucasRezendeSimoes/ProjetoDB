@@ -7,31 +7,31 @@ CREATE TABLE Alunos(
   Semestre int,
   Tot_cred int,
   id_Tcc VARCHAR(10),
-  PRIMARY KEY(RA),
+  PRIMARY KEY(RA)
 );
 CREATE TABLE Professores(
   Nome VARCHAR(255),
   id VARCHAR(255),
   Depart_id VARCHAR(255),
-  PRIMARY KEY(id),
+  PRIMARY KEY(id)
 );
 CREATE TABLE Cursos(
   Nome VARCHAR(255),
   id VARCHAR(255),
   Coordenador Varchar(255),
-  PRIMARY KEY(id),
+  PRIMARY KEY(id)
 );
 CREATE TABLE Departamentos(
   Nome VARCHAR(255),
   id VARCHAR(255),
   id_chefe Varchar(255),
-  PRIMARY KEY(id),
+  PRIMARY KEY(id)
 );
 CREATE TABLE Disciplinas(
   Nome VARCHAR(255),
   id VARCHAR(255),
   Depart_id Varchar(255),
-  PRIMARY KEY(id),
+  PRIMARY KEY(id)
 );
 CREATE TABLE MCC(
   id_curso VARCHAR(255),
@@ -39,13 +39,13 @@ CREATE TABLE MCC(
   Nome_Curso VARCHAR(255),
   id_disc VARCHAR(255),
   Nome_disc VARCHAR(255),
-  PRIMARY KEY(id_curso),
+  PRIMARY KEY(id_curso)
 );
 
 CREATE TABLE TCC(
   Tcc_id VARCHAR(255),
   id_professor VARCHAR(255),
-  PRIMARY KEY(Tcc_id),
+  PRIMARY KEY(Tcc_id)
 );
 CREATE TABLE Hist_a(
   id_aluno VARCHAR(255),
@@ -53,8 +53,8 @@ CREATE TABLE Hist_a(
   id_disciplinas VARCHAR(255),
   semestre int,
   ano int,
-  nota int
-  PRIMARY KEY(id_aluno),
+  nota int,
+  PRIMARY KEY(id_aluno)
 );
 CREATE TABLE Hist_p(
   id_professor VARCHAR(255),
@@ -62,62 +62,50 @@ CREATE TABLE Hist_p(
   id_curso VARCHAR(255),
   semestre int,
   ano int,
-  PRIMARY KEY(id_professor),
-);
-CREATE TABLE Formado(
-  RA VARCHAR(255),
-  id_Curso Varchar(255),
-  Semestre int,
-  PRIMARY KEY(RA),
+  PRIMARY KEY(id_professor)
 );
 CREATE TABLE Ensina(
   id_professor VARCHAR(255),
   id_disciplina VARCHAR(255),
-  PRIMARY KEY(id_professor),
+  PRIMARY KEY(id_professor)
 );
 
-ALTER TABLE Alunos(
-  ADD CONSTRAINT FOREIGN KEY (id_curso) REFERENCES Cursos(id),
-  ADD CONSTRAINT FOREIGN KEY (id_Tcc) REFERENCES TCC(Tcc_id)
-);
-ALTER TABLE Professores(
-  ADD CONSTRAINT FOREIGN KEY (Depart_id) REFERENCES Departamentos(id),
-);
-ALTER TABLE Cursos(
-  ADD CONSTRAINT FOREIGN KEY (Coordenador) REFERENCES Professores(id)
-);
-ALTER TABLE Departamentos(
-  ADD CONSTRAINT FOREIGN KEY (id_chefe) REFERENCES Professores(id)
-);
-ALTER TABLE Disciplinas(
-  ADD CONSTRAINT FOREIGN KEY (Depart_id) REFERENCES Departamentos(id)
-);
-ALTER TABLE MCC(
-  ADD CONSTRAINT FOREIGN KEY (id_Curso) REFERENCES Cursos(id),
-  ADD CONSTRAINT FOREIGN KEY (id_disc) REFERENCES Disciplinas(id),
-  ADD CONSTRAINT FOREIGN KEY (Nome_disc) REFERENCES Disciplinas(id)
-);
+ALTER TABLE Alunos
+  ADD CONSTRAINT Aluno_Curso FOREIGN KEY (id_curso) REFERENCES Cursos(id),
+  ADD CONSTRAINT Aluno_Tcc FOREIGN KEY (id_Tcc) REFERENCES TCC(Tcc_id);
 
-ALTER TABLE TCC(
- ADD CONSTRAINT FOREIGN KEY (id_professor) REFERENCES Professores(id)
-);
-ALTER TABLE Hist_a(
-  ADD CONSTRAINT FOREIGN KEY (id_aluno) REFERENCES Alunos(RA),
-  ADD CONSTRAINT FOREIGN KEY (id_curso) REFERENCES Cursos(id),
-  ADD CONSTRAINT FOREIGN KEY (id_disciplinas) REFERENCES Disciplinas(id)
-);
-ALTER TABLE Hist_p(
-  ADD CONSTRAINT FOREIGN KEY (id_professor) REFERENCES Professores(id),
-  ADD CONSTRAINT FOREIGN KEY (id_curso) REFERENCES Cursos(id),
-  ADD CONSTRAINT FOREIGN KEY (id_disciplinas) REFERENCES Disciplinas(id)
-);
-CREATE TABLE Formado(
-  ADD CONSTRAINT FOREIGN KEY (RA) REFERENCES Alunos(RA)
-);
-ALTER TABLE Ensina(
-  ADD CONSTRAINT FOREIGN KEY (id_professor) REFERENCES Professores(id),
-  ADD CONSTRAINT FOREIGN KEY (id_disciplinas) REFERENCES Disciplinas(id)
-);
+ALTER TABLE Professores
+  ADD CONSTRAINT Prof_dept FOREIGN KEY (Depart_id) REFERENCES Departamentos(id);
+
+ALTER TABLE Cursos
+  ADD CONSTRAINT Curso_prof FOREIGN KEY (Coordenador) REFERENCES Professores(id);
+
+ALTER TABLE Departamentos
+  ADD CONSTRAINT dept_prof FOREIGN KEY (id_chefe) REFERENCES Professores(id);
+
+ALTER TABLE Disciplinas
+  ADD CONSTRAINT Disc_dept FOREIGN KEY (Depart_id) REFERENCES Departamentos(id);
+
+ALTER TABLE MCC
+  ADD CONSTRAINT MCC_curso FOREIGN KEY (id_Curso) REFERENCES Cursos(id),
+  ADD CONSTRAINT MCC_Disc FOREIGN KEY (id_disc) REFERENCES Disciplinas(id);
+
+ALTER TABLE TCC
+ ADD CONSTRAINT TCC_Prof FOREIGN KEY (id_professor) REFERENCES Professores(id);
+
+ALTER TABLE Hist_a
+  ADD CONSTRAINT Hista_aluno FOREIGN KEY (id_aluno) REFERENCES Alunos(RA),
+  ADD CONSTRAINT Hista_curso FOREIGN KEY (id_curso) REFERENCES Cursos(id),
+  ADD CONSTRAINT Hista_disc FOREIGN KEY (id_disciplinas) REFERENCES Disciplinas(id);
+
+ALTER TABLE Hist_p
+  ADD CONSTRAINT Histp_prof FOREIGN KEY (id_professor) REFERENCES Professores(id),
+  ADD CONSTRAINT Histp_cursos FOREIGN KEY (id_curso) REFERENCES Cursos(id),
+  ADD CONSTRAINT Histp_disc FOREIGN KEY (id_disciplina) REFERENCES Disciplinas(id);
+
+ALTER TABLE Ensina
+  ADD CONSTRAINT Ens_prof FOREIGN KEY (id_professor) REFERENCES Professores(id),
+  ADD CONSTRAINT Ens_Disc FOREIGN KEY (id_disciplina) REFERENCES Disciplinas(id);
 
 Valores para teste
 insert into alunos 
