@@ -64,6 +64,12 @@ CREATE TABLE Hist_p(
   ano int,
   PRIMARY KEY(id_professor),
 );
+CREATE TABLE Formado(
+  RA VARCHAR(255),
+  id_Curso Varchar(255),
+  Semestre int,
+  PRIMARY KEY(RA),
+);
 CREATE TABLE Ensina(
   id_professor VARCHAR(255),
   id_disciplina VARCHAR(255),
@@ -104,6 +110,9 @@ ALTER TABLE Hist_p(
   ADD CONSTRAINT FOREIGN KEY (id_professor) REFERENCES Professores(id),
   ADD CONSTRAINT FOREIGN KEY (id_curso) REFERENCES Cursos(id),
   ADD CONSTRAINT FOREIGN KEY (id_disciplinas) REFERENCES Disciplinas(id)
+);
+CREATE TABLE Formado(
+  ADD CONSTRAINT FOREIGN KEY (RA) REFERENCES Alunos(RA)
 );
 ALTER TABLE Ensina(
   ADD CONSTRAINT FOREIGN KEY (id_professor) REFERENCES Professores(id),
