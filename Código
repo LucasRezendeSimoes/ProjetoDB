@@ -203,6 +203,10 @@ insert into Ensina (id_profesor, id_disciplina) values ('57452','1983');
 insert into Ensina (id_profesor, id_disciplina) values ('55321','4847');
 insert into Ensina (id_profesor, id_disciplina) values ('55321','9882');
 
+insert into TCC (Tcc_id, id_professor) values ('716','88580');
+insert into TCC (Tcc_id, id_professor) values ('634','99154');
+insert into TCC (Tcc_id, id_professor) values ('565','20783');
+
 Principais
 alunos (nome, RA, Curso, Semestre, tot_cred, tcc_id)
 professores (nome, P_id, departamento, disciplina) 
