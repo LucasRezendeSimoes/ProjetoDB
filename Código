@@ -89,6 +89,46 @@ CREATE TABLE Ensina(
   FOREING KEY (id_disciplinas) REFERENCES Disciplinas(id)
 );
 
+ALTER TABLE Alunos(
+  FOREIGN KEY (id_curso) REFERENCES Cursos(id),
+  FOREIGN KEY (id_Tcc) REFERENCES TCC(Tcc_id)
+);
+ALTER TABLE Professores(
+  FOREING KEY (Depart_id) REFERENCES Departamentos(id),
+);
+ALTER TABLE Cursos(
+  FOREING KEY (Coordenador) REFERENCES Professores(id)
+);
+ALTER TABLE Departamentos(
+  FOREING KEY (id_chefe) REFERENCES Professores(id)
+);
+ALTER TABLE Disciplinas(
+  FOREING KEY (Depart_id) REFERENCES Departamentos(id)
+);
+ALTER TABLE MCC(
+  FOREING KEY (id_Curso) REFERENCES Cursos(id),
+  FOREING KEY (Nome_Curso) REFERENCES Cursos(Nome),
+  FOREING KEY (id_disc) REFERENCES Disciplinas(id),
+  FOREING KEY (Nome_disc) REFERENCES Disciplinas(id)
+);
+
+ALTER TABLE TCC(
+ FOREING KEY (id_professor) REFERENCES Professores(id)
+);
+ALTER TABLE Hist_a(
+  FOREING KEY (id_aluno) REFERENCES Alunos(RA),
+  FOREING KEY (id_curso) REFERENCES Cursos(id),
+  FOREING KEY (id_disciplinas) REFERENCES Disciplinas(id)
+);
+ALTER TABLE Hist_p(
+  FOREING KEY (id_professor) REFERENCES Professores(id),
+  FOREING KEY (id_curso) REFERENCES Cursos(id),
+  FOREING KEY (id_disciplinas) REFERENCES Disciplinas(id)
+);
+ALTER TABLE Ensina(
+  FOREING KEY (id_professor) REFERENCES Professores(id),
+  FOREING KEY (id_disciplinas) REFERENCES Disciplinas(id)
+);
 
 Valores para teste
 insert into alunos 
