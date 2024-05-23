@@ -1,5 +1,3 @@
-CREATE DATABASE projeto;
-
 CREATE TABLE Alunos(
   Nome VARCHAR(255),
   RA VARCHAR(255),
@@ -38,8 +36,7 @@ CREATE TABLE MCC(
   semestre int,
   Nome_Curso VARCHAR(255),
   id_disc VARCHAR(255),
-  Nome_disc VARCHAR(255),
-  PRIMARY KEY(id_curso)
+  Nome_disc VARCHAR(255)
 );
 CREATE TABLE TCC(
   Tcc_id VARCHAR(255),
@@ -65,46 +62,8 @@ CREATE TABLE Hist_p(
 );
 CREATE TABLE Ensina(
   id_professor VARCHAR(255),
-  id_disciplina VARCHAR(255),
-  PRIMARY KEY(id_professor)
+  id_disciplina VARCHAR(255)
 );
-
-ALTER TABLE Alunos
-  ADD CONSTRAINT Aluno_Curso FOREIGN KEY (id_curso) REFERENCES Cursos(id),
-  ADD CONSTRAINT Aluno_Tcc FOREIGN KEY (id_Tcc) REFERENCES TCC(Tcc_id);
-
-ALTER TABLE Professores
-  ADD CONSTRAINT Prof_dept FOREIGN KEY (Depart_id) REFERENCES Departamentos(id);
-
-ALTER TABLE Cursos
-  ADD CONSTRAINT Curso_prof FOREIGN KEY (Coordenador) REFERENCES Professores(id);
-
-ALTER TABLE Departamentos
-  ADD CONSTRAINT dept_prof FOREIGN KEY (id_chefe) REFERENCES Professores(id);
-
-ALTER TABLE Disciplinas
-  ADD CONSTRAINT Disc_dept FOREIGN KEY (Depart_id) REFERENCES Departamentos(id);
-
-ALTER TABLE MCC
-  ADD CONSTRAINT MCC_curso FOREIGN KEY (id_Curso) REFERENCES Cursos(id),
-  ADD CONSTRAINT MCC_Disc FOREIGN KEY (id_disc) REFERENCES Disciplinas(id);
-
-ALTER TABLE TCC
- ADD CONSTRAINT TCC_Prof FOREIGN KEY (id_professor) REFERENCES Professores(id);
-
-ALTER TABLE Hist_a
-  ADD CONSTRAINT Hista_aluno FOREIGN KEY (id_aluno) REFERENCES Alunos(RA),
-  ADD CONSTRAINT Hista_curso FOREIGN KEY (id_curso) REFERENCES Cursos(id),
-  ADD CONSTRAINT Hista_disc FOREIGN KEY (id_disciplinas) REFERENCES Disciplinas(id);
-
-ALTER TABLE Hist_p
-  ADD CONSTRAINT Histp_prof FOREIGN KEY (id_professor) REFERENCES Professores(id),
-  ADD CONSTRAINT Histp_cursos FOREIGN KEY (id_curso) REFERENCES Cursos(id),
-  ADD CONSTRAINT Histp_disc FOREIGN KEY (id_disciplina) REFERENCES Disciplinas(id);
-
-ALTER TABLE Ensina
-  ADD CONSTRAINT Ens_prof FOREIGN KEY (id_professor) REFERENCES Professores(id),
-  ADD CONSTRAINT Ens_Disc FOREIGN KEY (id_disciplina) REFERENCES Disciplinas(id);
 
 insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc) values ('Briney Crips',     '7144486071', '5356',  1, 1,   '2');
 insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc) values ('Hunt Burberry',    '6390410948', '5356',    2, 2,   '07444');
@@ -123,27 +82,27 @@ insert into Departamentos (Nome, id, id_chefe) values ('Eng. Elétrica', 'EE', '
 insert into Departamentos (Nome, id, id_chefe) values ('Física', 'FI', '67997');
 insert into Departamentos (Nome, id, id_chefe) values ('Estudos Sociais', 'ES', '57109');
 
-insert into Disciplinas (Nome, id, Depart_id) values ('Python', 7615, 'CC');
-insert into Disciplinas (Nome, id, Depart_id) values ('C', 0842, 'CC');
-insert into Disciplinas (Nome, id, Depart_id) values ('Eng. de Software', 6057, 'CC');
-insert into Disciplinas (Nome, id, Depart_id) values ('Estatística', 1014, 'AD');
-insert into Disciplinas (Nome, id, Depart_id) values ('Cálculo', 1983, 'FI');
-insert into Disciplinas (Nome, id, Depart_id) values ('Termodinâmica', 9882, 'FI');
-insert into Disciplinas (Nome, id, Depart_id) values ('Circuitos', 1248, 'EE');
-insert into Disciplinas (Nome, id, Depart_id) values ('Sociologia', 8598, 'ES');
-insert into Disciplinas (Nome, id, Depart_id) values ('Filosofia', 7927, 'ES');
-insert into Disciplinas (Nome, id, Depart_id) values ('Estudo Social Cristão', 5890, 'ES');
-insert into Disciplinas (Nome, id, Depart_id) values ('Macroeconomia', 1880, 'AD');
-insert into Disciplinas (Nome, id, Depart_id) values ('Sistemas Digitais', 3448, 'EE');
-insert into Disciplinas (Nome, id, Depart_id) values ('Gestão', 8940, 'AD');
-insert into Disciplinas (Nome, id, Depart_id) values ('Mecânica Geral', 4847, 'FI');
-insert into Disciplinas (Nome, id, Depart_id) values ('Microprocessadores', 4296, 'EE');
+insert into Disciplinas (Nome, id, Depart_id) values ('Python', '7615', 'CC');
+insert into Disciplinas (Nome, id, Depart_id) values ('C', '0842', 'CC');
+insert into Disciplinas (Nome, id, Depart_id) values ('Eng. de Software', '6057', 'CC');
+insert into Disciplinas (Nome, id, Depart_id) values ('Estatística', '1014', 'AD');
+insert into Disciplinas (Nome, id, Depart_id) values ('Cálculo', '1983', 'FI');
+insert into Disciplinas (Nome, id, Depart_id) values ('Termodinâmica', '9882', 'FI');
+insert into Disciplinas (Nome, id, Depart_id) values ('Circuitos', '1248', 'EE');
+insert into Disciplinas (Nome, id, Depart_id) values ('Sociologia', '8598', 'ES');
+insert into Disciplinas (Nome, id, Depart_id) values ('Filosofia', '7927', 'ES');
+insert into Disciplinas (Nome, id, Depart_id) values ('Estudo Social Cristão', '5890', 'ES');
+insert into Disciplinas (Nome, id, Depart_id) values ('Macroeconomia', '1880', 'AD');
+insert into Disciplinas (Nome, id, Depart_id) values ('Sistemas Digitais', '3448', 'EE');
+insert into Disciplinas (Nome, id, Depart_id) values ('Gestão', '8940', 'AD');
+insert into Disciplinas (Nome, id, Depart_id) values ('Mecânica Geral', '4847', 'FI');
+insert into Disciplinas (Nome, id, Depart_id) values ('Microprocessadores', '4296', 'EE');
 
-insert into Cursos (Nome, id, Coordenador) values ('Ciências da computação', 5356, '88580');
-insert into Cursos (Nome, id, Coordenador) values ('Eng. Elétrica', 9583, '90276');
-insert into Cursos (Nome, id, Coordenador) values ('Administração', 9876, '99154');
-insert into Cursos (Nome, id, Coordenador) values ('Eng. Automotiva', 1914, '24486');
-insert into Cursos (Nome, id, Coordenador) values ('Eng. Civil', 1521, '20783');
+insert into Cursos (Nome, id, Coordenador) values ('Ciências da computação', '5356', '88580');
+insert into Cursos (Nome, id, Coordenador) values ('Eng. Elétrica', '9583', '90276');
+insert into Cursos (Nome, id, Coordenador) values ('Administração', '9876', '99154');
+insert into Cursos (Nome, id, Coordenador) values ('Eng. Automotiva', '1914', '24486');
+insert into Cursos (Nome, id, Coordenador) values ('Eng. Civil', '1521', '20783');
 
 insert into MCC (id_curso, semestre, Nome_curso, id_disc, Nome_disc) values ('5356',1,'Ciências da computação','7615','Python');
 insert into MCC (id_curso, semestre, Nome_curso, id_disc, Nome_disc) values ('5356',2,'Ciências da computação','0842','C');
