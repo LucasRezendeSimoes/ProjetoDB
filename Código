@@ -162,3 +162,8 @@ select a.nome, h.id_disciplinas, d.nome, h.semestre, h.ano, h.nota from hist_a a
 where h.id_aluno = a.ra
 and h.id_disciplinas = d.id
 and a.nome = 'Leland Jimes';
+
+select p.nome, d.nome, h.semestre, h.ano from professores as p, hist_p as h, disciplinas as d
+where p.id = h.id_professor
+and h.id_disciplina = d.id
+and p.nome = 'Maria';
