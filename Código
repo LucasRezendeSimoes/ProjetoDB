@@ -5,31 +5,26 @@ CREATE TABLE Alunos(
   Semestre int,
   Tot_cred int,
   id_Tcc VARCHAR(10),
-  PRIMARY KEY(RA)
 );
 CREATE TABLE Professores(
   Nome VARCHAR(255),
   id VARCHAR(255),
   Depart_id VARCHAR(255),
-  PRIMARY KEY(id)
 );
 CREATE TABLE Cursos(
   Nome VARCHAR(255),
   id VARCHAR(255),
   Coordenador Varchar(255),
-  PRIMARY KEY(id)
 );
 CREATE TABLE Departamentos(
   Nome VARCHAR(255),
   id VARCHAR(255),
   id_chefe Varchar(255),
-  PRIMARY KEY(id)
 );
 CREATE TABLE Disciplinas(
   Nome VARCHAR(255),
   id VARCHAR(255),
   Depart_id Varchar(255),
-  PRIMARY KEY(id)
 );
 CREATE TABLE MCC(
   id_curso VARCHAR(255),
@@ -41,7 +36,6 @@ CREATE TABLE MCC(
 CREATE TABLE TCC(
   Tcc_id VARCHAR(255),
   id_professor VARCHAR(255),
-  PRIMARY KEY(Tcc_id)
 );
 CREATE TABLE Hist_a(
   id_aluno VARCHAR(255),
@@ -50,7 +44,6 @@ CREATE TABLE Hist_a(
   semestre int,
   ano int,
   nota int,
-  PRIMARY KEY(id_aluno)
 );
 CREATE TABLE Hist_p(
   id_professor VARCHAR(255),
@@ -58,7 +51,6 @@ CREATE TABLE Hist_p(
   id_curso VARCHAR(255),
   semestre int,
   ano int,
-  PRIMARY KEY(id_professor)
 );
 CREATE TABLE Ensina(
   id_professor VARCHAR(255),
