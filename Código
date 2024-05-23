@@ -76,10 +76,10 @@ insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc, formado) val
 insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc, formado) values ('Edita Heustace',   '1040251110', '1521',     10, 10, '',0);
 
 insert into Departamentos (Nome, id, id_chefe) values ('Ciências da Computação', 'CC', '88580');
-insert into Departamentos (Nome, id, id_chefe) values ('Administração', 'AD', '35775');
-insert into Departamentos (Nome, id, id_chefe) values ('Eng. Elétrica', 'EE', '47577');
-insert into Departamentos (Nome, id, id_chefe) values ('Física', 'FI', '67997');
-insert into Departamentos (Nome, id, id_chefe) values ('Estudos Sociais', 'ES', '57109');
+insert into Departamentos (Nome, id, id_chefe) values ('Administração', 'AD', '24486');
+insert into Departamentos (Nome, id, id_chefe) values ('Eng. Elétrica', 'EE', '55321');
+insert into Departamentos (Nome, id, id_chefe) values ('Física', 'FI', '99154');
+insert into Departamentos (Nome, id, id_chefe) values ('Estudos Sociais', 'ES', '20783');
 
 insert into Disciplinas (Nome, id, Depart_id) values ('Python', '7615', 'CC');
 insert into Disciplinas (Nome, id, Depart_id) values ('C', '0842', 'CC');
@@ -167,3 +167,9 @@ select p.nome, d.nome, h.semestre, h.ano from professores as p, hist_p as h, dis
 where p.id = h.id_professor
 and h.id_disciplina = d.id
 and p.nome = 'Maria';
+
+select nome from alunos
+where formado = 1;
+
+select p.nome, d.nome from professores as p, departamentos as d
+where p.id = d.id_chefe;
