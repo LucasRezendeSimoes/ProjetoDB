@@ -158,3 +158,7 @@ insert into Hist_a(id_aluno, id_curso, id_disciplinas, semestre, ano, nota) valu
 insert into Hist_a(id_aluno, id_curso, id_disciplinas, semestre, ano, nota) values ('5591245617','1521','8940',1,2013,5.6);
 insert into Hist_a(id_aluno, id_curso, id_disciplinas, semestre, ano, nota) values ('1040251110','1521','4296',4,2009,8.4);
 
+select a.nome, h.id_disciplinas, d.nome, h.semestre, h.ano, h.nota from hist_a as h, alunos as a, disciplinas as d
+where h.id_aluno = a.ra
+and h.id_disciplinas = d.id
+and a.nome = 'Leland Jimes';
