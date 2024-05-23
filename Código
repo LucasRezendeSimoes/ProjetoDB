@@ -5,30 +5,36 @@ CREATE TABLE Alunos(
   Semestre int,
   Tot_cred int,
   id_Tcc VARCHAR(10),
+  formado int,
+  PRIMARY KEY(RA)
 );
 CREATE TABLE Professores(
   Nome VARCHAR(255),
   id VARCHAR(255),
   Depart_id VARCHAR(255),
+  PRIMARY KEY(id)
 );
 CREATE TABLE Cursos(
   Nome VARCHAR(255),
   id VARCHAR(255),
   Coordenador Varchar(255),
+  PRIMARY KEY(id)
 );
 CREATE TABLE Departamentos(
   Nome VARCHAR(255),
   id VARCHAR(255),
   id_chefe Varchar(255),
+  PRIMARY KEY(id)
 );
 CREATE TABLE Disciplinas(
   Nome VARCHAR(255),
   id VARCHAR(255),
   Depart_id Varchar(255),
+  PRIMARY KEY(id)
 );
 CREATE TABLE MCC(
   id_curso VARCHAR(255),
-  semestre int,
+  ciclo int,
   Nome_Curso VARCHAR(255),
   id_disc VARCHAR(255),
   Nome_disc VARCHAR(255)
@@ -36,6 +42,7 @@ CREATE TABLE MCC(
 CREATE TABLE TCC(
   Tcc_id VARCHAR(255),
   id_professor VARCHAR(255),
+  PRIMARY KEY(Tcc_id)
 );
 CREATE TABLE Hist_a(
   id_aluno VARCHAR(255),
@@ -43,30 +50,30 @@ CREATE TABLE Hist_a(
   id_disciplinas VARCHAR(255),
   semestre int,
   ano int,
-  nota int,
+  nota int
 );
 CREATE TABLE Hist_p(
   id_professor VARCHAR(255),
   id_disciplina VARCHAR(255),
   id_curso VARCHAR(255),
   semestre int,
-  ano int,
+  ano int
 );
 CREATE TABLE Ensina(
   id_professor VARCHAR(255),
   id_disciplina VARCHAR(255)
 );
 
-insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc) values ('Briney Crips',     '7144486071', '5356',  1, 1,   '2');
-insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc) values ('Hunt Burberry',    '6390410948', '5356',    2, 2,   '07444');
-insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc) values ('Merralee Aiken',   '8676755329', '9583',    3, 3,   '716');
-insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc) values ('Jerry Summerson',  '5370601909', '9583',     4, 4,   '634');
-insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc) values ('Carey Gillingham', '4581949548', '9876', 5, 5,   '87995');
-insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc) values ('Giana Harback',    '2884642765', '9876',     6, 6,   '2525');
-insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc) values ('Leland Jimes',     '6703616205', '1914',  7, 7,   '51231');
-insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc) values ('Nicola Arro',      '5913577698', '1914',   8, 8,   '565');
-insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc) values ('Conrad Spears',    '5591245617', '1521',  9, 9,   '17776');
-insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc) values ('Edita Heustace',   '1040251110', '1521',     10, 10, '257');
+insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc, formado) values ('Briney Crips',     '7144486071', '5356',  1, 1,   '716',1);
+insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc, formado) values ('Hunt Burberry',    '6390410948', '5356',    2, 2,   '634',0);
+insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc, formado) values ('Merralee Aiken',   '8676755329', '9583',    3, 3,   '716',0);
+insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc, formado) values ('Jerry Summerson',  '5370601909', '9583',     4, 4,   '634',0);
+insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc, formado) values ('Carey Gillingham', '4581949548', '9876', 5, 5,   '716',1);
+insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc, formado) values ('Giana Harback',    '2884642765', '9876',     6, 6,   '',1);
+insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc, formado) values ('Leland Jimes',     '6703616205', '1914',  7, 7,   '565',0);
+insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc, formado) values ('Nicola Arro',      '5913577698', '1914',   8, 8,   '565',1);
+insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc, formado) values ('Conrad Spears',    '5591245617', '1521',  9, 9,   '',0);
+insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc, formado) values ('Edita Heustace',   '1040251110', '1521',     10, 10, '',0);
 
 insert into Departamentos (Nome, id, id_chefe) values ('Ciências da Computação', 'CC', '88580');
 insert into Departamentos (Nome, id, id_chefe) values ('Administração', 'AD', '35775');
@@ -96,18 +103,18 @@ insert into Cursos (Nome, id, Coordenador) values ('Administração', '9876', '9
 insert into Cursos (Nome, id, Coordenador) values ('Eng. Automotiva', '1914', '24486');
 insert into Cursos (Nome, id, Coordenador) values ('Eng. Civil', '1521', '20783');
 
-insert into MCC (id_curso, semestre, Nome_curso, id_disc, Nome_disc) values ('5356',1,'Ciências da computação','7615','Python');
-insert into MCC (id_curso, semestre, Nome_curso, id_disc, Nome_disc) values ('5356',2,'Ciências da computação','0842','C');
-insert into MCC (id_curso, semestre, Nome_curso, id_disc, Nome_disc) values ('5356',3,'Ciências da computação','5890','Estudo Social Cristão');
-insert into MCC (id_curso, semestre, Nome_curso, id_disc, Nome_disc) values ('5356',4,'Ciências da computação','1983','Cálculo');
-insert into MCC (id_curso, semestre, Nome_curso, id_disc, Nome_disc) values ('9583',1,'Eng. Elétrica','1248','Circuitos');
-insert into MCC (id_curso, semestre, Nome_curso, id_disc, Nome_disc) values ('9583',2,'Eng. Elétrica','3448','Sistemas Digitais');
-insert into MCC (id_curso, semestre, Nome_curso, id_disc, Nome_disc) values ('9876',1,'Administração','8940','Gestão');
-insert into MCC (id_curso, semestre, Nome_curso, id_disc, Nome_disc) values ('9876',2,'Administração','1880','Macroeconomia');
-insert into MCC (id_curso, semestre, Nome_curso, id_disc, Nome_disc) values ('1914',1,'Eng. Automotiva','4847','Mecânica Geral');
-insert into MCC (id_curso, semestre, Nome_curso, id_disc, Nome_disc) values ('1914',2,'Eng. Automotiva','1248','Circuitos');
-insert into MCC (id_curso, semestre, Nome_curso, id_disc, Nome_disc) values ('1521',1,'Eng. Civil','9882','Termodinâmica');
-insert into MCC (id_curso, semestre, Nome_curso, id_disc, Nome_disc) values ('1521',2,'Eng. Civil','1983','Cálculo');
+insert into MCC (id_curso, ciclo, Nome_curso, id_disc, Nome_disc) values ('5356',1,'Ciências da computação','7615','Python');
+insert into MCC (id_curso, ciclo, Nome_curso, id_disc, Nome_disc) values ('5356',2,'Ciências da computação','0842','C');
+insert into MCC (id_curso, ciclo, Nome_curso, id_disc, Nome_disc) values ('5356',3,'Ciências da computação','5890','Estudo Social Cristão');
+insert into MCC (id_curso, ciclo, Nome_curso, id_disc, Nome_disc) values ('5356',4,'Ciências da computação','1983','Cálculo');
+insert into MCC (id_curso, ciclo, Nome_curso, id_disc, Nome_disc) values ('9583',1,'Eng. Elétrica','1248','Circuitos');
+insert into MCC (id_curso, ciclo, Nome_curso, id_disc, Nome_disc) values ('9583',2,'Eng. Elétrica','3448','Sistemas Digitais');
+insert into MCC (id_curso, ciclo, Nome_curso, id_disc, Nome_disc) values ('9876',1,'Administração','8940','Gestão');
+insert into MCC (id_curso, ciclo, Nome_curso, id_disc, Nome_disc) values ('9876',2,'Administração','1880','Macroeconomia');
+insert into MCC (id_curso, ciclo, Nome_curso, id_disc, Nome_disc) values ('1914',1,'Eng. Automotiva','4847','Mecânica Geral');
+insert into MCC (id_curso, ciclo, Nome_curso, id_disc, Nome_disc) values ('1914',2,'Eng. Automotiva','1248','Circuitos');
+insert into MCC (id_curso, ciclo, Nome_curso, id_disc, Nome_disc) values ('1521',1,'Eng. Civil','9882','Termodinâmica');
+insert into MCC (id_curso, ciclo, Nome_curso, id_disc, Nome_disc) values ('1521',2,'Eng. Civil','1983','Cálculo');
 
 insert into Professores (Nome, id, Depart_id) values ('Cléber','88580','CC');
 insert into Professores (Nome, id, Depart_id) values ('João','90276','AD');
@@ -139,3 +146,15 @@ insert into Hist_p (id_professor, id_disciplina, id_curso, semestre, ano) values
 insert into Hist_p (id_professor, id_disciplina, id_curso, semestre, ano) values ('20783','8598','1521',2,2018);
 insert into Hist_p (id_professor, id_disciplina, id_curso, semestre, ano) values ('57452','0842','5356',3,2024);
 insert into Hist_p (id_professor, id_disciplina, id_curso, semestre, ano) values ('55321','3448','9583',4,2021);
+
+insert into Hist_a(id_aluno, id_curso, id_disciplinas, semestre, ano, nota) values ('7144486071','5356','7615',1,2014,5.7);
+insert into Hist_a(id_aluno, id_curso, id_disciplinas, semestre, ano, nota) values ('6390410948','5356','6057',2,2010,4.7);
+insert into Hist_a(id_aluno, id_curso, id_disciplinas, semestre, ano, nota) values ('8676755329','9583','9882',3,2013,8);
+insert into Hist_a(id_aluno, id_curso, id_disciplinas, semestre, ano, nota) values ('5370601909','9583','8598',2,2002,9.3);
+insert into Hist_a(id_aluno, id_curso, id_disciplinas, semestre, ano, nota) values ('4581949548','9876','7927',3,2010,2.5);
+insert into Hist_a(id_aluno, id_curso, id_disciplinas, semestre, ano, nota) values ('2884642765','9876','1880',1,2020,5.3);
+insert into Hist_a(id_aluno, id_curso, id_disciplinas, semestre, ano, nota) values ('6703616205','1914','3448',4,2012,4);
+insert into Hist_a(id_aluno, id_curso, id_disciplinas, semestre, ano, nota) values ('5913577698','1914','0842',2,2011,7.8);
+insert into Hist_a(id_aluno, id_curso, id_disciplinas, semestre, ano, nota) values ('5591245617','1521','8940',1,2013,5.6);
+insert into Hist_a(id_aluno, id_curso, id_disciplinas, semestre, ano, nota) values ('1040251110','1521','4296',4,2009,8.4);
+
