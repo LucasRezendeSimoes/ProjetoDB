@@ -173,3 +173,8 @@ where formado = 1;
 
 select p.nome, d.nome from professores as p, departamentos as d
 where p.id = d.id_chefe;
+
+select t.tcc_id, a.nome, p.nome from alunos as a, professores as p, tcc as t
+where a.id_tcc = t.tcc_id
+and p.id = t.id_professor
+order by p.nome;
