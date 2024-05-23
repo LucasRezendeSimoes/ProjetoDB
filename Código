@@ -1,13 +1,190 @@
 CREATE DATABASE projeto;
-Tabelas
+
 CREATE TABLE Alunos(
   Nome VARCHAR(255),
   RA VARCHAR(255),
-  Curso Varchar(255),
-  Semestre int
+  id_Curso Varchar(255),
+  Semestre int,
+  Tot_cred int,
+  id_Tcc VARCHAR(10),
+  PRIMARY KEY(RA)
+);
+CREATE TABLE Professores(
+  Nome VARCHAR(255),
+  id VARCHAR(255),
+  Depart_id VARCHAR(255),
+  PRIMARY KEY(id)
+);
+CREATE TABLE Cursos(
+  Nome VARCHAR(255),
+  id VARCHAR(255),
+  Coordenador Varchar(255),
+  PRIMARY KEY(id)
+);
+CREATE TABLE Departamentos(
+  Nome VARCHAR(255),
+  id VARCHAR(255),
+  id_chefe Varchar(255),
+  PRIMARY KEY(id)
+);
+CREATE TABLE Disciplinas(
+  Nome VARCHAR(255),
+  id VARCHAR(255),
+  Depart_id Varchar(255),
+  PRIMARY KEY(id)
+);
+CREATE TABLE MCC(
+  id_curso VARCHAR(255),
+  semestre int,
+  Nome_Curso VARCHAR(255),
+  id_disc VARCHAR(255),
+  Nome_disc VARCHAR(255),
+  PRIMARY KEY(id_curso)
+);
+CREATE TABLE TCC(
+  Tcc_id VARCHAR(255),
+  id_professor VARCHAR(255),
+  PRIMARY KEY(Tcc_id)
+);
+CREATE TABLE Hist_a(
+  id_aluno VARCHAR(255),
+  id_curso VARCHAR(255),
+  id_disciplinas VARCHAR(255),
+  semestre int,
+  ano int,
+  nota int,
+  PRIMARY KEY(id_aluno)
+);
+CREATE TABLE Hist_p(
+  id_professor VARCHAR(255),
+  id_disciplina VARCHAR(255),
+  id_curso VARCHAR(255),
+  semestre int,
+  ano int,
+  PRIMARY KEY(id_professor)
+);
+CREATE TABLE Ensina(
+  id_professor VARCHAR(255),
+  id_disciplina VARCHAR(255),
+  PRIMARY KEY(id_professor)
 );
 
+ALTER TABLE Alunos
+  ADD CONSTRAINT Aluno_Curso FOREIGN KEY (id_curso) REFERENCES Cursos(id),
+  ADD CONSTRAINT Aluno_Tcc FOREIGN KEY (id_Tcc) REFERENCES TCC(Tcc_id);
 
-Valores para teste
-insert into alunos 
-values ('Joãozinho123anti_lacração', '123456789', 'Eng. Prod', 10);
+ALTER TABLE Professores
+  ADD CONSTRAINT Prof_dept FOREIGN KEY (Depart_id) REFERENCES Departamentos(id);
+
+ALTER TABLE Cursos
+  ADD CONSTRAINT Curso_prof FOREIGN KEY (Coordenador) REFERENCES Professores(id);
+
+ALTER TABLE Departamentos
+  ADD CONSTRAINT dept_prof FOREIGN KEY (id_chefe) REFERENCES Professores(id);
+
+ALTER TABLE Disciplinas
+  ADD CONSTRAINT Disc_dept FOREIGN KEY (Depart_id) REFERENCES Departamentos(id);
+
+ALTER TABLE MCC
+  ADD CONSTRAINT MCC_curso FOREIGN KEY (id_Curso) REFERENCES Cursos(id),
+  ADD CONSTRAINT MCC_Disc FOREIGN KEY (id_disc) REFERENCES Disciplinas(id);
+
+ALTER TABLE TCC
+ ADD CONSTRAINT TCC_Prof FOREIGN KEY (id_professor) REFERENCES Professores(id);
+
+ALTER TABLE Hist_a
+  ADD CONSTRAINT Hista_aluno FOREIGN KEY (id_aluno) REFERENCES Alunos(RA),
+  ADD CONSTRAINT Hista_curso FOREIGN KEY (id_curso) REFERENCES Cursos(id),
+  ADD CONSTRAINT Hista_disc FOREIGN KEY (id_disciplinas) REFERENCES Disciplinas(id);
+
+ALTER TABLE Hist_p
+  ADD CONSTRAINT Histp_prof FOREIGN KEY (id_professor) REFERENCES Professores(id),
+  ADD CONSTRAINT Histp_cursos FOREIGN KEY (id_curso) REFERENCES Cursos(id),
+  ADD CONSTRAINT Histp_disc FOREIGN KEY (id_disciplina) REFERENCES Disciplinas(id);
+
+ALTER TABLE Ensina
+  ADD CONSTRAINT Ens_prof FOREIGN KEY (id_professor) REFERENCES Professores(id),
+  ADD CONSTRAINT Ens_Disc FOREIGN KEY (id_disciplina) REFERENCES Disciplinas(id);
+
+insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc) values ('Briney Crips', '7144486071', '8010', 1, 1, '2');
+insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc) values ('Hunt Burberry', '6390410948', '79', 2, 2, '07444');
+insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc) values ('Merralee Aiken', '8676755329', '00', 3, 3, '716');
+insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc) values ('Jerry Summerson', '5370601909', '6', 4, 4, '634');
+insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc) values ('Carey Gillingham', '4581949548', '41528', 5, 5, '87995');
+insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc) values ('Giana Harback', '2884642765', '5', 6, 6, '2525');
+insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc) values ('Leland Jimes', '6703616205', '1914', 7, 7, '51231');
+insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc) values ('Nicola Arro', '5913577698', '184', 8, 8, '565');
+insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc) values ('Conrad Spears', '5591245617', '4736', 9, 9, '17776');
+insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc) values ('Edita Heustace', '1040251110', '3', 10, 10, '257');
+
+insert into Departamentos (Nome, id, id_chefe) values ('Ciências da Computação', 'CC', '88580');
+insert into Departamentos (Nome, id, id_chefe) values ('Administração', 'AD', '35775');
+insert into Departamentos (Nome, id, id_chefe) values ('Eng. Elétrica', 'EE', '47577');
+insert into Departamentos (Nome, id, id_chefe) values ('Física', 'FI', '67997');
+insert into Departamentos (Nome, id, id_chefe) values ('Estudos Sociais', 'ES', '57109');
+
+insert into Disciplinas (Nome, id, Depart_id) values ('Python', 7615, 'CC');
+insert into Disciplinas (Nome, id, Depart_id) values ('C', 0842, 'CC');
+insert into Disciplinas (Nome, id, Depart_id) values ('Eng. de Software', 6057, 'CC');
+insert into Disciplinas (Nome, id, Depart_id) values ('Estatística', 1014, 'AD');
+insert into Disciplinas (Nome, id, Depart_id) values ('Cálculo', 1983, 'FI');
+insert into Disciplinas (Nome, id, Depart_id) values ('Termodinâmica', 9882, 'FI');
+insert into Disciplinas (Nome, id, Depart_id) values ('Circuitos', 1248, 'EE');
+insert into Disciplinas (Nome, id, Depart_id) values ('Sociologia', 8598, 'ES');
+insert into Disciplinas (Nome, id, Depart_id) values ('Filosofia', 7927, 'ES');
+insert into Disciplinas (Nome, id, Depart_id) values ('Estudo Social Cristão', 5890, 'ES');
+insert into Disciplinas (Nome, id, Depart_id) values ('Macroeconomia', 1880, 'AD');
+insert into Disciplinas (Nome, id, Depart_id) values ('Sistemas Digitais', 3448, 'EE');
+insert into Disciplinas (Nome, id, Depart_id) values ('Gestão', 8940, 'AD');
+insert into Disciplinas (Nome, id, Depart_id) values ('Mecânica Geral', 4847, 'FI');
+insert into Disciplinas (Nome, id, Depart_id) values ('Microprocessadores', 4296, 'EE');
+
+insert into Cursos (Nome, id, Coordenador) values ('Ciências da computação', 5356, '88580');
+insert into Cursos (Nome, id, Coordenador) values ('Eng. Elétrica', 9583, '90276');
+insert into Cursos (Nome, id, Coordenador) values ('Administração', 9876, '99154');
+insert into Cursos (Nome, id, Coordenador) values ('Eng. Automotiva', 1914, '24486');
+insert into Cursos (Nome, id, Coordenador) values ('Eng. Civil', 1521, '20783');
+
+insert into MCC (id_curso, semestre, Nome_curso, id_disc, Nome_disc) values ('5356',1,'Ciências da computação','7615','Python');
+insert into MCC (id_curso, semestre, Nome_curso, id_disc, Nome_disc) values ('5356',2,'Ciências da computação','0842','C');
+insert into MCC (id_curso, semestre, Nome_curso, id_disc, Nome_disc) values ('5356',3,'Ciências da computação','5890','Estudo Social Cristão');
+insert into MCC (id_curso, semestre, Nome_curso, id_disc, Nome_disc) values ('5356',4,'Ciências da computação','1983','Cálculo');
+insert into MCC (id_curso, semestre, Nome_curso, id_disc, Nome_disc) values ('9583',1,'Eng. Elétrica','1248','Circuitos');
+insert into MCC (id_curso, semestre, Nome_curso, id_disc, Nome_disc) values ('9583',2,'Eng. Elétrica','3448','Sistemas Digitais');
+insert into MCC (id_curso, semestre, Nome_curso, id_disc, Nome_disc) values ('9876',1,'Administração','8940','Gestão');
+insert into MCC (id_curso, semestre, Nome_curso, id_disc, Nome_disc) values ('9876',2,'Administração','1880','Macroeconomia');
+insert into MCC (id_curso, semestre, Nome_curso, id_disc, Nome_disc) values ('1914',1,'Eng. Automotiva','4847','Mecânica Geral');
+insert into MCC (id_curso, semestre, Nome_curso, id_disc, Nome_disc) values ('1914',2,'Eng. Automotiva','1248','Circuitos');
+insert into MCC (id_curso, semestre, Nome_curso, id_disc, Nome_disc) values ('1521',1,'Eng. Civil','9882','Termodinâmica');
+insert into MCC (id_curso, semestre, Nome_curso, id_disc, Nome_disc) values ('1521',2,'Eng. Civil','1983','Cálculo');
+
+insert into Professores (Nome, id, Depart_id) values ('Cléber','88580','CC');
+insert into Professores (Nome, id, Depart_id) values ('João','90276','AD');
+insert into Professores (Nome, id, Depart_id) values ('Cleiton','99154','EE');
+insert into Professores (Nome, id, Depart_id) values ('Rosana','24486','FI');
+insert into Professores (Nome, id, Depart_id) values ('Maria','20783','ES');
+insert into Professores (Nome, id, Depart_id) values ('Paulo','57452','CC');
+insert into Professores (Nome, id, Depart_id) values ('Nicole','55321','FI');
+
+insert into Ensina (id_profesor, id_disciplina) values ('88580','7615');
+insert into Ensina (id_profesor, id_disciplina) values ('88580','0842');
+insert into Ensina (id_profesor, id_disciplina) values ('90276','8940');
+insert into Ensina (id_profesor, id_disciplina) values ('99154','1248');
+insert into Ensina (id_profesor, id_disciplina) values ('99154','3448');
+insert into Ensina (id_profesor, id_disciplina) values ('24486','9882');
+insert into Ensina (id_profesor, id_disciplina) values ('20783','5890');
+insert into Ensina (id_profesor, id_disciplina) values ('57452','1983');
+insert into Ensina (id_profesor, id_disciplina) values ('55321','4847');
+insert into Ensina (id_profesor, id_disciplina) values ('55321','9882');
+
+insert into TCC (Tcc_id, id_professor) values ('716','88580');
+insert into TCC (Tcc_id, id_professor) values ('634','99154');
+insert into TCC (Tcc_id, id_professor) values ('565','20783');
+
+insert into Hist_p (id_professor, id_disciplina, id_curso, semestre, ano) values ('88580','7615','5356',1,2018);
+insert into Hist_p (id_professor, id_disciplina, id_curso, semestre, ano) values ('90276','1014','9876',2,2015);
+insert into Hist_p (id_professor, id_disciplina, id_curso, semestre, ano) values ('99154','1983','1914',3,2013);
+insert into Hist_p (id_professor, id_disciplina, id_curso, semestre, ano) values ('24486','1248','9583',2,2020);
+insert into Hist_p (id_professor, id_disciplina, id_curso, semestre, ano) values ('20783','8598','1521',2,2018);
+insert into Hist_p (id_professor, id_disciplina, id_curso, semestre, ano) values ('57452','0842','5356',3,2024);
+insert into Hist_p (id_professor, id_disciplina, id_curso, semestre, ano) values ('55321','3448','9583',4,2021);
