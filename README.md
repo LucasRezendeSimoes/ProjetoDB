@@ -5,72 +5,72 @@
 - Murilo Darce Borges Silva RA: 24.122.031-8
 
 # Como utilizar o código
-Para utilizar o código, o usuário deverá copiar o código das tabelas e das inserções e colocar no banco de dados, após isso, copiar a querie que deseja(posicionadas ao fim do código) e colocar no banco de dados, estão presentes os códigos: Criação das tabelas, Inserção de dados nas tabelas e as queries solicitadas. As tabelas criadas são as de Alunos, Professores, Cursos, TCC, Departamento, Disciplinas, Matriz curricular de cursos, Histórico de aluno e professor, Formado (Quais alunos já se formaram) e Ensina (as matérias que um professor ensina). Os dados inseridos foram feitos com auxílio de um programa em python e do site Mockaroo. As queries solicitadas estão disponíveis ao fim do código e mostram os dados requisitados pelo usuário. O código foi realizado e testado devidamento no site CockroachDB.
+Para utilizar o código, o usuário deverá copiar o código das tabelas e das inserções e colocar no banco de dados, após isso, copiar a querie que deseja(posicionadas ao fim do código) e colocar no banco de dados, estão presentes os códigos: Criação das tabelas, Inserção de dados nas tabelas e as queries solicitadas. As tabelas criadas são as de Alunos, Professores, Cursos, TCC, Departamento, Disciplinas, Matriz curricular de cursos, Histórico de aluno e professor, Formado (Quais alunos já se formaram) e Ensina (as matérias que um professor ensina). Os dados inseridos foram feitos com auxílio do site Mockaroo. As queries solicitadas estão disponíveis ao fim do código e mostram os dados requisitados pelo usuário. O código foi realizado e testado devidamento no site CockroachDB.
 # Diagrama Relacional
 ```mermaid
 erDiagram
     Alunos {
-        string RA pk
         string Nome
-        string id_Curso fk
+        string RA pk
+        string id_Curso
         int Semestre
-        string id_tcc fk
+        int Tot_cred
+        string id_tcc
+        int formado
     }
     Professores {
-        string Id pk
         string Nome
-        string id_Departamento fk
+        string Id pk
+        string id_Departamento
     }
     Cursos {
         string id pk
         string Nome
-        string Cordenador fk
+        string Cordenador
     }
     Departamentos {
         string Id pk
         string Nome
-        string Id_chefe fk
+        string Id_chefe
     }
     Disciplinas {
         string Id pk
         string Nome
-        string Departamento fk
+        string Departamento
     }
     MCC {
-        string id_curso pk
+        string id_curso
         int Semestre
-        string Nome_Curso fk
-        string id_disc fk
-        string Nome_disc fk
+        string Nome_Curso
+        string id_disc
+        string Nome_disc
     }
     TCC {
         string TCC_id pk
-        string Id_professor fk
+        string Id_professor
     }
     Hist_a {
-        string Id_Aluno pk
-        string Id_Curso fk
-        string Id_disciplina fk
+        string Id_Aluno
+        string Id_Curso
+        string Id_disciplina
         int Semestre
         int ano
         int nota
     }
     Hist_p {
-        string Id_Professor pk
-        string Id_disciplina fk
-        string Id_Curso fk
+        string Id_Professor
+        string Id_disciplina
+        string Id_Curso
         int Semestre
         int ano
     }
     Formado{
         string RA pk
-        int semestre
         int ano
-        string Id_Curso fk
     }
     Ensina{
-        string id_disciplina fk
-        string id_professor fk
+        string id_disciplina
+        string id_professor
     }
 
     Alunos }|--|{ Professores : leciona
