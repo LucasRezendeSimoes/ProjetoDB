@@ -5,6 +5,7 @@
 - Murilo Darce Borges Silva RA: 24.122.031-8
 
 # Como utilizar o código
+Para utilizar o código, o usuário deverá copiar o mesmo da aba código e colar em algum banco de dados apenas, as tabelas, inserts, queries já estão posicionados na devida ordem para auxiliar o usuário, estão presentes os códigos: Criação das tabelas, Inserção de dados nas tabelas e as queries solicitadas. As tabelas criadas são as de Alunos, Professores, Cursos, TCC, Departamento, Disciplinas, Matriz curricular de cursos, Histórico de aluno e professor, Formado (Quais alunos já se formaram) e Ensina (as matérias que um professor ensina). Os dados inseridos foram feitos com auxílio de um programa em python e do site Mockaroo. As queries solicitadas estão disponíveis ao fim do código e mostram os dados requisitados pelo usuário.
 # Diagrama Relacional
 ```mermaid
 erDiagram
