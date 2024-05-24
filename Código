@@ -64,6 +64,11 @@ CREATE TABLE Ensina(
   id_professor VARCHAR(255),
   id_disciplina VARCHAR(255)
 );
+CREATE TABLE Formado (
+  RA VARCHAR(255),
+  Ano INT,
+  PRIMARY KEY (RA)
+);
 
 insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc, formado) values ('Briney Crips',     '7144486071', '5356',  1, 1,   '716',1);
 insert into Alunos (Nome, RA, id_curso, Semestre, Tot_cred, Id_tcc, formado) values ('Hunt Burberry',    '6390410948', '5356',    2, 2,   '634',0);
@@ -173,9 +178,9 @@ select nome from alunos
 where formado = 1;
 
 teste de querie formado
-SELECT f.ra, f.semestre, f.ano, f.id_curso from formado as f
-INNER JOIN alunos as a on f.ra = a.ra
-where f.semestre = 8 and f.ano = 2020;
+select a.nome, a.ra, a.semestre, a.id_curso, a.formado from alunos as a
+inner join formado on a.ra = formado.ra
+where formado.ano = 2010;
 
 select p.nome, d.nome from professores as p, departamentos as d
 where p.id = d.id_chefe;
