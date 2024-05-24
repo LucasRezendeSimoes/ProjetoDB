@@ -1,3 +1,4 @@
+CREATE DATABASE projeto;
 CREATE TABLE Alunos(
   Nome VARCHAR(255),
   RA VARCHAR(255),
