@@ -164,6 +164,11 @@ insert into Hist_a(id_aluno, id_curso, id_disciplinas, semestre, ano, nota) valu
 insert into Hist_a(id_aluno, id_curso, id_disciplinas, semestre, ano, nota) values ('5591245617','1521','8940',1,2013,5.6);
 insert into Hist_a(id_aluno, id_curso, id_disciplinas, semestre, ano, nota) values ('1040251110','1521','4296',4,2009,8.4);
 
+insert into Formado (RA, Ano) Values ('7144486071', 2010);
+insert into Formado (RA, Ano) Values ('4581949548', 2010);
+insert into Formado (RA, Ano) Values ('2884642765', 2010);
+insert into Formado (RA, Ano) Values ('5913577698', 2020);
+
 select a.nome, h.id_disciplinas, d.nome, h.semestre, h.ano, h.nota from hist_a as h, alunos as a, disciplinas as d
 where h.id_aluno = a.ra
 and h.id_disciplinas = d.id
@@ -174,10 +179,6 @@ where p.id = h.id_professor
 and h.id_disciplina = d.id
 and p.nome = 'Maria';
 
-select nome from alunos
-where formado = 1;
-
-teste de querie formado
 select a.nome, a.ra, a.semestre, a.id_curso, a.formado from alunos as a
 inner join formado on a.ra = formado.ra
 where formado.ano = 2010;
