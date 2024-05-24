@@ -172,6 +172,11 @@ and p.nome = 'Maria';
 select nome from alunos
 where formado = 1;
 
+teste de querie formado
+SELECT f.ra, f.semestre, f.ano, f.id_curso from formado as f
+INNER JOIN alunos as a on f.ra = a.ra
+where f.semestre = 8 and f.ano = 2020;
+
 select p.nome, d.nome from professores as p, departamentos as d
 where p.id = d.id_chefe;
 
