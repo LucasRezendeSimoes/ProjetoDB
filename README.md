@@ -79,18 +79,18 @@ erDiagram
     Alunos ||--|| Hist_a : Pertence
     Alunos |o--o| Formado : Esta
 
+    Professores }|--|{ Ensina : Ensina
     Professores ||--o| Cursos : Coordena
     Professores ||--o| Departamentos : Chefia
     Professores ||--|{ TCC : Orienta
     Professores ||--|| Hist_p : Pertence
-    Professores }|--|{ Ensina : Ensina
 
     Cursos ||--|| Formado : Foi
     Cursos }|--|| MCC : Possui
-
-    Departamentos ||--|{ Disciplinas : Possui
     Cursos }|--|{ Disciplinas : Possui
 
     Disciplinas }|--|{ Ensina : Inclui
     Disciplinas }|--|| MCC : Possui
+
+    Departamentos ||--|{ Disciplinas : Possui
 ```
